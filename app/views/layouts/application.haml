@@ -2,7 +2,7 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang'=>"en", :lang=>"en" }
   %head
   %title Devsurfing
-  = stylesheet_link_tag 'master'
+  = stylesheet_link_tag 'master', 'index'
   = javascript_include_tag :defaults
   = csrf_meta_tag
 
@@ -14,7 +14,7 @@
         %h2= link_to 'developers travelling all over the world', root_path
       #utilities
         %ul
-          %li= link_to "sign in with Twitter", root_path
+          %li#twitter_signin= link_to "sign in with Twitter", root_path
           %li= link_to "Do you want to offer your office?", new_office_path
     #content
       = yield
