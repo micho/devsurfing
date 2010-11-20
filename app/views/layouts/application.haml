@@ -2,19 +2,28 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang'=>"en", :lang=>"en" }
   %head
   %title Devsurfing
-  = stylesheet_link_tag :all
+  = stylesheet_link_tag 'master'
   = javascript_include_tag :defaults
   = csrf_meta_tag
 
 %body
-  %ul
-    %li= link_to "Home", root_path
-    %li= link_to "Browse all cities", offices_path
-
-  = form_tag '/search/', :method => :get do
-    = text_field_tag :location, params[:location], :placeholder => "Type a city or country"
-    #autoCompleteMenu
-    = city_autocompleter
-    = submit_tag 'Find an office to surf'
-
-  = yield
+  #wrapper
+    #header
+      #logo
+        %h1= link_to 'devsurfing:', root_path
+        %h2= link_to 'developers travelling all over the world', root_path
+      #utilities
+        %ul
+          %li= link_to "sign in with Twitter", root_path
+          %li= link_to "Do you want to offer your office?", new_office_path
+    #content
+      = yield
+    #footer
+      #devsurfing_stats
+        1234 developers, 255 offices, 12 cities, 8 hours of coding and no coffee
+      %ul
+        %li= link_to 'About', ''
+        %li= link_to 'Jobs', ''
+        %li= link_to 'API', ''
+        %li= link_to 'Help', ''
+        %li= link_to 'FAQ about time travel', ''

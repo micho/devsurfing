@@ -1,7 +1,21 @@
-%h1 devsurfing
-
-%p= link_to "Want to host developers? Offer your office!", new_office_path
-
-%h2 Cities
-#cities
-  = render City.all
+%search
+  %p some random text here, not a satanic enchantment. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id sem nisi.
+  %h3 where do you want to code?
+  = form_tag '/search/', :method => :get do
+    = text_field_tag :location, params[:location], :placeholder => "Type a city or country"
+    #autoCompleteMenu
+    = city_autocompleter
+    = submit_tag 'Find an office to surf'
+%office_slideshow
+  %img{:src=>'/images/demo/office1.jpg'}
+%office_suggestions
+  %ul
+    -6.times do
+      %li
+        %ul
+          %li
+            %img{:src=>'/images/demo/office_avatar.png'}
+          %li Teambox
+          %li in Barcelona
+          %li Ruby on Rails, collaboration software
+          %li= link_to 'Request a desk', ''
