@@ -18,19 +18,19 @@
     = f.text_area :description
 
   .field
-    = f.label :address
-    %br
-    = f.text_field :address
-
-  .field
-    = f.label :city
-    %br
-    = f.text_field :city
-
-  .field
     = f.label :country
     %br
     = f.select :country, country_options
+
+  .field
+    = f.label :city_name, "City"
+    %br
+    = f.text_field :city_name
+
+  .field
+    = f.label :address
+    %br
+    = f.text_field :address
 
   .field
     = f.label :desks
