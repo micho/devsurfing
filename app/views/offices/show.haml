@@ -1,1 +1,25 @@
-office profile
+p#notice= notice
+
+%p
+  <b>Name:</b>
+  = @office.name
+
+%p
+  <b>Description:</b>
+  = @office.description
+
+%p
+  <b>Data:</b>
+  = @office.data
+
+%p
+  <b>Location:</b>
+  == #{@office.address}, #{@office.city} (#{@office.country})
+
+%p
+  <b>Desks:</b>
+  = @office.desks
+
+
+= link_to 'Edit', edit_office_path(@office)
+= link_to 'Back', offices_path

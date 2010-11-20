@@ -1,7 +1,7 @@
 class OfficesController < ApplicationController
 
   def index
-    @offices = Office.all
+    @offices = Office.where('desks > 0')
   end
 
   def show

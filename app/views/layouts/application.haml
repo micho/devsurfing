@@ -9,10 +9,10 @@
 %body
   %ul
     %li= link_to "Home", root_path
-    %li= link_to "All offices", offices_path
+    %li= link_to "Browse all cities", offices_path
 
   = form_tag '/search/', :method => :get do
-    = text_field_tag :location, params[:location]
+    = text_field_tag :location, params[:location], :placeholder => "Type a city or country"
     = submit_tag 'Find an office to surf'
 
   = yield
