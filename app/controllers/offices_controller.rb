@@ -10,6 +10,7 @@ class OfficesController < ApplicationController
 
   def new
     @office = Office.new
+    @office.desks = 0
   end
 
   def edit
