@@ -13,6 +13,8 @@
 
   = form_tag '/search/', :method => :get do
     = text_field_tag :location, params[:location], :placeholder => "Type a city or country"
+    #autoCompleteMenu
+    = city_autocompleter
     = submit_tag 'Find an office to surf'
 
   = yield
