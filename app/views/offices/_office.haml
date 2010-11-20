@@ -1,4 +1,6 @@
 .office
+  %img{:src=>'/images/demo/office_avatar.png'}
   %h2= office.name
   %p== In #{office.city}, #{office.country}.
-  = link_to "I want to go here!", new_request_path
+  %p Ruby on Rails, collaboration software
+  %p= link_to 'Request a desk', new_request_path
