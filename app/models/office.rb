@@ -13,19 +13,9 @@ class Office < ActiveRecord::Base
   end
 
   def before_validation
-    self.city = City.where(:name => city_name, :country => country).first ||
-                City.create!(:name => city_name, :country => country)
-  end
-
-  def before_save
-    # TODO: This is not atomic or optimized in any way for concurrency!
-    City.where(:country => country, :name => city).each do |city|
-      city.destroy
-    end
-  end
-
-  def after_save
-    City.where(:country => country, :name => city).each do |city|
+    unless city_name.blank?
+      self.city = City.where(:name => city_name, :country => country).first ||
+                  City.create!(:name => city_name, :country => country)
     end
   end
 
