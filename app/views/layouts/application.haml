@@ -1,0 +1,18 @@
+!!! Strict
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang'=>"en", :lang=>"en" }
+  %head
+  %title Devsurfing
+  = stylesheet_link_tag :all
+  = javascript_include_tag :defaults
+  = csrf_meta_tag
+
+%body
+  %ul
+    %li= link_to "Home", root_path
+    %li= link_to "All offices", offices_path
+
+  = form_tag '/search/', :method => :get do
+    = text_field_tag :location, params[:location]
+    = submit_tag 'Find an office to surf'
+
+  = yield
