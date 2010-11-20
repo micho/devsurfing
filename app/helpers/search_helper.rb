@@ -10,8 +10,7 @@ module SearchHelper
           'location',
           'autoCompleteMenu',
           city_names, {
-            delay: 50,
-            frequency: 50
+            delay: 50
           }
         );
       }

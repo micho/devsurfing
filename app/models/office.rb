@@ -8,8 +8,8 @@ class Office < ActiveRecord::Base
   belongs_to :city, :counter_cache => true
   attr_accessor :city_name
 
-  def self.find_by_search_terms(terms)
-    Office.find_by_sql("SELECT * FROM offices WHERE name like '%#{terms}%'")
+  def self.search(terms)
+    Office.find_by_sql("SELECT * FROM offices WHERE search_terms like '%#{terms}%'")
   end
 
   def before_validation
@@ -17,6 +17,10 @@ class Office < ActiveRecord::Base
       self.city = City.where(:name => city_name, :country => country).first ||
                   City.create!(:name => city_name, :country => country)
     end
+  end
+
+  def before_save
+    self.search_terms = "#{name} (#{city.name}, #{country})"
   end
 
 end
