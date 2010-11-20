@@ -1,0 +1,20 @@
+defaults: &defaults
+  providers:
+  - :provider: github
+    :key: key
+    :secret: secret
+  - :provider: twitter
+    :key: key
+    :secret: secret
+  - :provider: facebook
+    :key: key
+    :secret: secret
+  - :provider: linked_in
+    :key: key
+    :secret: secret
+
+development:
+  <<: *defaults
+
+test: &testing
+  <<: *defaults
